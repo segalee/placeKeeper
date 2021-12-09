@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    /* background-color: pink; */
+    /* background-image: url("../img/glitter.png"); */
+    background-image: url("../img/map.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(8, 151, 8);
+}
+
+.links li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.links a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 50px;
+    border-radius: 8px;
+    height: 50px;
+    width: 120px;
+    background-color: honeydew;
+    color: rgb(230, 80, 43);
+    border: 1px solid rgb(163, 64, 39);
+    margin: auto;
+    margin-top: 5px;
+}
+
+.links a:hover {
+    background-color: rgba(241, 115, 83, 0.657);
+    color: honeydew;
+}
+
+
+/* util flex */
+
+.flex {
+    display: flex;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
