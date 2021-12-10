@@ -9,55 +9,70 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/user-settings.css">
+
     <title>placeKeeper settings</title>
 </head>
 
-<body>
-    <h1>Here will be user settings</h1>
+<body onload="onInit()">
+    <nav class="flex wrap links">
+        <a class="logo" href="index.html">PlaceKeeper</a>
+        <a href="user-settings.html">Choose Your Settings</a>
+        <a href="map.html">Map</a>
 
-    <form class="inputs-form" id="frmRegister" onsubmit="submit(event)">
-        <div class="input-div email">
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" required />
+    </nav>
+    <header>
+        <h1>Enter Your Settings</h1>
+    </header>
+    <main>
+        <div class="inside-form">
+
+
+
         </div>
-        <div class="input-div age">
-            <label for="age">Age:</label>
-            <input type="range" id="age" name="age" min="18" max="120" value="26" onchange="showAge(this.value);" />
-            <span id="sAge">0</span>
-        </div>
-        <p>Colors-</p>
-        <div class="input-div bgcolor">
-            <label for="bgcolor">Set Background Color:</label>
-            <input type="color" id="bgcolor" name="bgcolor" form="frmRegister" value="#000000" onchange="setBgColor(this.value) " />
-        </div>
-        <div class="input-div color">
-            <label for="age">Set Text Color:</label>
-            <input type="color" id="color" name="color" form="frmRegister" value="#000000" onchange="setColor(this.value) " />
-        </div>
-        <div class="input-div birth-date">
-            <label for="dob ">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" />
-        </div>
-        <div class="input-div birth-time">
-            <label for="tob ">Birth Time:</label>
-            <input type="time" id="tob" name="tob" />
-        </div>
+        <form class="inputs-form" id="formRegister" onsubmit="submit(event)">
+            <div class="input-div email">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" required />
+            </div>
+            <div class="input-div age">
+                <label for="age">Age:</label>
+                <input type="range" id="age" name="age" min="18" max="120" value="26" onchange="showAge(this.value);" />
+                <!-- <input type="range" id="age" name="age" min="18" max="120" value="26" onchange="showAge(this.value);" /> -->
+                <span id="sAge">18</span>
+            </div>
+            <p>Colors-</p>
+            <div class="input-div bgcolor">
+                <label for="bgcolor">Set Background Color:</label>
+                <input type="color" id="bgcolor" name="bgcolor" form="formRegister" value="#FFFFFF" onchange="getBgColor(this.value) " />
+            </div>
+            <div class="input-div color">
+                <label for="age">Set Text Color:</label>
+                <input type="color" id="color" name="color" form="formRegister" value="#000000" onchange="getTxtColor(this.value) " />
+            </div>
+            <div class="input-div birth-date">
+                <label for="dob ">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" />
+            </div>
+            <div class="input-div birth-time">
+                <label for="tob ">Birth Time:</label>
+                <input type="time" id="tob" name="tob" />
+            </div>
+            <button class="btn-set">Set</button>
+        </form>`
 
-        <!-- <input type="submit " value="Register " /> -->
-        <button class="btn-set">Register</button>
-        <!-- <input type="submit " formnovalidate value="Save " /> -->
-
-    </form>
-
+    </main>
+    <footer>
+        Footer
+    </footer>
 
 
-
-    <script src="js/services/utilService.js "></script>
-    <script src="js/controller.js "></script>
+    <!-- <script src="js/services/utilService.js "></script> -->
     <script src="js/services/storageService.js "></script>
-    <script src="js/services/userService.js "></script>
+    <script src="js/services/userService.js"></script>
     <script src="js/services/placeService.js "></script>
+    <script src="js/user.controller.js"></script>
 </body>
 
 

@@ -13,29 +13,31 @@
     <title>placeKeeper homepage</title>
 </head>
 
-<body>
-    <h1>Find your way back to your best places</h1>
+<body onload="onInit()">
+    <nav class="flex wrap links">
+        <a class="logo" href="index.html">PlaceKeeper</a>
+        <a href="user-settings.html">Choose Your Settings</a>
+        <a href="map.html">Map</a>
 
-    <section class="flex wrap links">
-        <ul>
-            <li>
-                <a href="user-settings.html">Choose Settings</a>
-            </li>
-            <li>
-                <a href="map.html">Map</a>
-            </li>
-        </ul>
+    </nav>
 
-    </section>
+    <header>
+        <h1>Find your way back to your best places</h1>
+    </header>
+    <main>
 
+        <footer>
+            <h2>Page Footer</h2>
+        </footer>
+    </main>
     <!-- <section, nav, main, aside, header,footer> -->
 
 
-    <script src="js/services/utilService.js"></script>
-    <script src="js/controller.js"></script>
+    <!-- <script src="js/services/utilService.js"></script> -->
     <script src="js/services/storageService.js"></script>
     <script src="js/services/userService.js"></script>
     <script src="js/services/placeService.js"></script>
+    <script src="js/user.controller.js"></script>
 </body>
 
 
