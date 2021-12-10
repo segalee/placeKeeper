@@ -7,27 +7,19 @@ function getUserFromStorage() {
 
 function _createUser(userInput) {
     const user = {
+        // ...userInput,
+        // these properties are being updated in spread operator
         id: makeId(),
-        email: userInput ? userInput.email : null,
-        age: userInput ? userInput.age : 18,
         txtColor: userInput ? userInput.txtColor : '#000000',
         bgColor: userInput ? userInput.bgColor : '#FFFFFF',
-        dob: userInput ? userInput.dob : null,
-        tob: userInput ? userInput.tob : null,
+        email: userInput.email,
+        age: userInput.age,
+        dob: userInput.dob,
+        tob: userInput.tob,
     };
     _saveUserToStorage(user);
 }
 
-function makeId(length = 6) {
-    const possible =
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var txt = '';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}
-
 function _saveUserToStorage(user) {
-    saveToStorage('userDB', user);
+    saveToStorage(STORAGE_KEY, user);
 }

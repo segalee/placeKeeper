@@ -9,6 +9,10 @@ function loadFromStorage(key) {
     return JSON.parse(val);
 }
 
+function removeFromStorage(key) {
+    localStorage.removeItem(key);
+}
+
 function clearStorage() {
     localStorage.clear();
 }

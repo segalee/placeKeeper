@@ -1,10 +1,31 @@
 'use strict';
 
 let map;
-// let infoWindow;
 
-//let map
-// let infoWindow;
+const PLACES_STORAGE_KEY = 'placesDB';
+
+function getPlacesFromStorage() {
+    return loadFromStorage(PLACES_STORAGE_KEY);
+}
+
+function _addPlaceToStorage(place) {
+    let placesInDb = loadFromStorage(PLACES_STORAGE_KEY);
+    if (!placesInDb || (placesInDb && placesInDb.length === 0)) {
+        placesInDb = [];
+    }
+    placesInDb.push(place);
+    saveToStorage(PLACES_STORAGE_KEY, placesInDb);
+}
+
+function _createPlace(name, lat, lng) {
+    const place = {
+        id: makeId(),
+        name,
+        lat,
+        lng,
+    };
+    _addPlaceToStorage(place);
+}
 
 function initMap() {
     renderLocationsTable();
