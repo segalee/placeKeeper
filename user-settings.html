@@ -31,7 +31,7 @@
 
 
         </div>
-        <form class="inputs-form" id="formRegister" onsubmit="submit(event)">
+        <form class="inputs-form" id="formRegister" onsubmit="onSet(event)">
             <div class="input-div email">
                 <label for="email">E-mail:</label>
                 <input type="email" name="email" required />
@@ -49,7 +49,7 @@
             </div>
             <div class="input-div color">
                 <label for="age">Set Text Color:</label>
-                <input type="color" id="color" name="color" form="formRegister" value="#000000" onchange="getTxtColor(this.value) " />
+                <input type="color" id="txtcolor" name="txtcolor" form="formRegister" value="#000000" onchange="getTxtColor(this.value) " />
             </div>
             <div class="input-div birth-date">
                 <label for="dob ">Date of Birth:</label>

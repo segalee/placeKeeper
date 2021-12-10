@@ -4,37 +4,49 @@ var gIsSetBtnClicked;
 
 function onInit() {
     _createUser();
-    renderSettings();
+    // renderSettings();
     console.log(gUser);
 }
 
-function renderSettings() {
-    if (!gIsSetBtnClicked) initialValues();
-    saveValues();
-    // if set btn was not clicked --> initial values
-    //if set btn was clicked--> change the page to user pref
-}
+// function renderSettings() {
+//     if (!gIsSetBtnClicked) initialValues();
+//     saveValues();
+//     // if set btn was not clicked --> initial values
+//     //if set btn was clicked--> change the page to user pref
+// }
 
-function submit(ev) {
-    gIsSetBtnClicked = true;
-    ev.preventDefault();
-
+function getUserInput() {
     const user = getUser();
-    console.log(user);
-    // user.age = show();
-    const bgColor = document.querySelector('[name=bgcolor]').value;
-    const color = document.querySelector('[name=bgcolor]').value;
-    console.log(user.txtColor);
-    user.txtColor = color;
-    user.bgColor = bgColor;
-    console.log(user.bgColor);
-    document.body.style.color = `${user.txtColor}`;
-    document.body.style.backgroundColor = `${user.bgColor}`;
-    initialValues();
-    renderSettings;
+    user.email = document.querySelector('[name=email]').value;
+    user.age = document.querySelector('[name=age]').value;
+    user.bgColor = document.querySelector('[name=bgcolor]').value;
+    user.txtColor = document.querySelector('[name=txtcolor]').value;
+    user.dob = document.querySelector('[name=dob]').value;
+    user.tob = document.querySelector('[name=tob]').value;
+    return user;
 }
 
-function saveValues() {
+function onSet(ev) {
+    ev.preventDefault();
+    gIsSetBtnClicked = true;
+    const user = getUserInput();
+    renderColors();
+    const elInputs = document.querySelectorAll('input');
+    // elInputs.forEach((elInput) => {
+    //     user.value = elInput.value;
+    // });
+    // renderColors();
+    // console.log(user.txtColor);
+    // user.txtColor = color;
+    // user.bgColor = bgColor;
+    // console.log(user.bgColor);
+    // document.body.style.color = `${user.txtColor}`;
+    // document.body.style.backgroundColor = `${user.bgColor}`;
+    // initialValues();
+    // renderSettings;
+}
+
+function renderColors() {
     const user = getUser();
     document.body.style.color = `${user.txtColor}`;
     document.body.style.backgroundColor = `${user.bgColor}`;

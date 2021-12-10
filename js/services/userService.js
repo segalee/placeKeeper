@@ -16,8 +16,8 @@ function _createUser() {
             age: 18,
             txtColor: '#000000',
             bgColor: '#FFFFFF',
-            bd: null,
-            bt: null,
+            dob: null,
+            tob: null,
         };
     }
     gUser = user;
