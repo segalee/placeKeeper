@@ -15,7 +15,7 @@
     <title>placeKeeper settings</title>
 </head>
 
-<body onload="onInit()">
+<body onload="onInitUser()">
     <nav class="flex wrap links">
         <a class="logo" href="index.html">PlaceKeeper</a>
         <a href="user-settings.html">Choose Your Settings</a>
@@ -38,7 +38,7 @@
             </div>
             <div class="input-div age">
                 <label for="age">Age:</label>
-                <input type="range" id="age" name="age" min="18" max="120" value="26" onchange="showAge(this.value);" />
+                <input type="range" id="age" name="age" min="18" max="120" value="18" onchange="showAge(this.value);" />
                 <!-- <input type="range" id="age" name="age" min="18" max="120" value="26" onchange="showAge(this.value);" /> -->
                 <span id="sAge">18</span>
             </div>

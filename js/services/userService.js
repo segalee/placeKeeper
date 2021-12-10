@@ -1,27 +1,21 @@
 'use strict';
-var gUser;
 const STORAGE_KEY = 'userDB';
-// var gUser = _createUser();
 
-function getUser() {
-    return gUser;
+function getUserFromStorage() {
+    return loadFromStorage(STORAGE_KEY);
 }
 
-function _createUser() {
-    var user = loadFromStorage(STORAGE_KEY);
-    if (!user) {
-        user = {
-            id: makeId(),
-            email: null,
-            age: 18,
-            txtColor: '#000000',
-            bgColor: '#FFFFFF',
-            dob: null,
-            tob: null,
-        };
-    }
-    gUser = user;
-    _saveUserToStorage();
+function _createUser(userInput) {
+    const user = {
+        id: makeId(),
+        email: userInput ? userInput.email : null,
+        age: userInput ? userInput.age : 18,
+        txtColor: userInput ? userInput.txtColor : '#000000',
+        bgColor: userInput ? userInput.bgColor : '#FFFFFF',
+        dob: userInput ? userInput.dob : null,
+        tob: userInput ? userInput.tob : null,
+    };
+    _saveUserToStorage(user);
 }
 
 function makeId(length = 6) {
@@ -34,6 +28,6 @@ function makeId(length = 6) {
     return txt;
 }
 
-function _saveUserToStorage() {
-    saveToStorage('userDB', gUser);
+function _saveUserToStorage(user) {
+    saveToStorage('userDB', user);
 }
