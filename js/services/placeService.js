@@ -97,6 +97,16 @@ function removePlace(placeId) {
     console.log(places);
 }
 
+function getAsCSV() {
+    const places = getPlacesFromStorage();
+    let csvStr = `Id, Name, Latitude, Longitude`;
+    places.forEach((place) => {
+        const csvLine = `\n${place.id}, ${place.name}, \$${place.lat}, ${place.lng}`;
+        csvStr += csvLine;
+    });
+    return csvStr;
+}
+
 // function getSelectedLocation(map, infoWindow) {
 //     map.addListener('click', (mapsMouseEvent) => {
 //         var locationName = prompt('enter your location name');
@@ -121,12 +131,3 @@ function removePlace(placeId) {
 //         infoWindow.open(map);
 //     });
 // }
-
-// When a user clicks on the map, the user is prompted to enter a
-// name and the clicked location is saved to a places array in the
-// localStorage.
-// • Show the list and allow the user to remove a place.
-// • Use a place-service that manages the place entity, a place object
-// looks like that:
-// {id: 123, lat: 32.1416, lng: 34.831213, name: 'Pukis house'}
-// • Add navigation links to all pages.

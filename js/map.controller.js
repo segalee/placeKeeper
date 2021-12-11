@@ -38,33 +38,37 @@ function renderLocationsTable() {
     elTable.innerHTML = strHTML;
 }
 
-function renderModal() {
-    const elModal = document.querySelector('.modal');
-    var strHTML = `  <form id="formLocation" onsubmit="onSndLocation(event, this)">
-    <label for="name">Enter Loction Name:</label>
-    <input type="text" id="location" name="location" form="formLocation" />
-    <button class="btn-location-name">Send</button>
-</form>`;
-    elModal.innerHTML = strHTML;
+function downloadCSV(elLink) {
+    const csvContent = getAsCSV();
+    // const csvContent = 'Name,Age\nPopo,12\nShraga,30\nToto,19'
+    elLink.href = 'data:text/csv;charset=utf-8,' + csvContent;
 }
 
-function onSndLocation(ev) {
-    ev.preventDefault();
-    // console.log('val:', val);
-    var elLocationNameInput = document.querySelector('[name=location]').value;
-    console.log('elLocationNameInput:', elLocationNameInput);
-    return elLocationNameInput;
-}
+// function renderModal() {
+//     const elModal = document.querySelector('.modal');
+//     var strHTML = `  <form id="formLocation" onsubmit="onSndLocation(event, this)">
+//     <label for="name">Enter Loction Name:</label>
+//     <input type="text" id="location" name="location" form="formLocation" />
+//     <button class="btn-location-name">Send</button>
+// </form>`;
+//     elModal.innerHTML = strHTML;
+// }
+
+// function onSndLocation(ev) {
+//     ev.preventDefault();
+//     // console.log('val:', val);
+//     var elLocationNameInput = document.querySelector('[name=location]').value;
+//     console.log('elLocationNameInput:', elLocationNameInput);
+//     return elLocationNameInput;
+// }
 
 function getSelectedLocation(map, infoWindow) {
     map.addListener('click', (mapsMouseEvent) => {
         // renderModal();
-
         var locationName = prompt('enter your location name');
         // var locationName = elLocationNameInput;
         // var locationName = getLocationNameInput();
         // console.log('locationName:', locationName);
-
         // Close the current InfoWindow.
         infoWindow.close();
         // Create a new InfoWindow.
