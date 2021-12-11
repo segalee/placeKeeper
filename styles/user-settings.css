@@ -4,6 +4,12 @@
 
 body {
     background-image: none;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    float: none;
 }
 
 .inputs-form {
@@ -15,7 +21,7 @@ body {
 .input-div {
     height: 40px;
     border: black 2px solid;
-    background-color: rgb(228, 190, 66);
+    background-color: rgba(228, 190, 66, 0);
     display: inline-block;
     width: 500px;
     margin: auto;
@@ -34,6 +40,11 @@ body {
     margin-top: 10px;
     line-height: 40px;
     border-radius: 8px;
+}
+
+.btn-set:hover {
+    cursor: pointer;
+    background-color: rgba(228, 90, 66, 0.787);
 }
 
 footer {
