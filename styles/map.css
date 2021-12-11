@@ -72,6 +72,11 @@ tr {
     font-size: 1.1rem;
 }
 
+.garbage:hover {
+    cursor: pointer;
+    color: rgb(82, 148, 38);
+}
+
 .custom-map-control-button {
     cursor: pointer;
     width: 30px;

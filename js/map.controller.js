@@ -8,6 +8,11 @@ function onInitMap() {
     //todo -- replace place input from google + user prompt/ modal
 }
 
+function onDeleteLocation(id) {
+    removePlace(id);
+    renderLocationsTable();
+}
+
 function getNameInput() {
     var nameInput = document.querySelector('[name=location]').value;
     console.log('nameInput:', nameInput);
@@ -26,6 +31,7 @@ function renderLocationsTable() {
                     <td class="name">${place.name}</td>
                      <td class="lat">${place.lat}</td>
                     <td class="lng">${place.lng}</td>
+                    <td class="garbage"> <i onClick="onDeleteLocation('${place.id}')" class="fas fa-trash"></i></td>
                     </tr>`;
         return strHTML;
     });

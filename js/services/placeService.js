@@ -42,13 +42,12 @@ function initMap() {
         position: { lat: 29.5577, lng: 34.9519 },
         map: map,
     });
-
-    let infoWindow = new google.maps.InfoWindow();
-
     const locationButton = document.createElement('img');
     locationButton.src = '/img/current-location.png';
     // locationButton.textContent = 'Pan to Current Location';
     locationButton.classList.add('custom-map-control-button');
+
+    let infoWindow = new google.maps.InfoWindow();
 
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
     locationButton.addEventListener('click', () => {
@@ -86,6 +85,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         "Error: Your browser doesn't support geolocation."
     );
     infoWindow.open(map);
+}
+
+function removePlace(placeId) {
+    var places = getPlacesFromStorage();
+    const placeIdx = places.findIndex((place) => {
+        return place.id === placeId;
+    });
+    places.splice(placeIdx, 1);
+    saveToStorage(PLACES_STORAGE_KEY, places);
+    console.log(places);
 }
 
 // function getSelectedLocation(map, infoWindow) {
