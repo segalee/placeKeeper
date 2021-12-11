@@ -8,10 +8,16 @@ function onInitMap() {
     //todo -- replace place input from google + user prompt/ modal
 }
 
+function getNameInput() {
+    var nameInput = document.querySelector('[name=location]').value;
+    console.log('nameInput:', nameInput);
+    return nameInput;
+}
+
 function renderLocationsTable() {
     const places = getPlacesFromStorage();
     if (!places) return;
-    console.log('places:', places);
+    // console.log('places:', places);
     const elTable = document.querySelector('tbody');
     var strHTML = '';
     places.forEach((place) => {
@@ -26,9 +32,33 @@ function renderLocationsTable() {
     elTable.innerHTML = strHTML;
 }
 
+function renderModal() {
+    const elModal = document.querySelector('.modal');
+    var strHTML = `  <form id="formLocation" onsubmit="onSndLocation(event, this)">
+    <label for="name">Enter Loction Name:</label>
+    <input type="text" id="location" name="location" form="formLocation" />
+    <button class="btn-location-name">Send</button>
+</form>`;
+    elModal.innerHTML = strHTML;
+}
+
+function onSndLocation(ev) {
+    ev.preventDefault();
+    // console.log('val:', val);
+    var elLocationNameInput = document.querySelector('[name=location]').value;
+    console.log('elLocationNameInput:', elLocationNameInput);
+    return elLocationNameInput;
+}
+
 function getSelectedLocation(map, infoWindow) {
     map.addListener('click', (mapsMouseEvent) => {
+        // renderModal();
+
         var locationName = prompt('enter your location name');
+        // var locationName = elLocationNameInput;
+        // var locationName = getLocationNameInput();
+        // console.log('locationName:', locationName);
+
         // Close the current InfoWindow.
         infoWindow.close();
         // Create a new InfoWindow.
@@ -37,6 +67,7 @@ function getSelectedLocation(map, infoWindow) {
             lat: mapsMouseEvent.latLng.lat(),
             lng: mapsMouseEvent.latLng.lat(),
         });
+        // var locationName = getLocationNameInput();
 
         const lat = infoWindow.lat;
         console.log('lat:', lat);

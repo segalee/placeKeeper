@@ -3,24 +3,49 @@ body {
     width: 100%;
 }
 
-#map {
-    /* width: 750px; */
-    width: 55%;
-    height: 450px;
+h1 {
+    float: none;
+}
+
+.modal form {
+    width: fit-content;
+}
+
+.btn-location-name {
+    height: 25px;
+    background-color: rgb(228, 90, 66);
+    display: inline-block;
+    width: 50px;
+    top: -5px;
+    line-height: 25px;
+    border-radius: 4px;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.btn-location-name:hover {
+    cursor: pointer;
+    background-color: rgba(228, 90, 66, 0.787);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    margin-top: 50px;
 }
 
 header {
     margin-top: 100px;
 }
 
-main {
-    display: flex;
-    margin-left: 50px;
-    margin-top: 50px;
+#map {
+    /* width: 750px; */
+    width: 45%;
+    height: 450px;
 }
 
 table {
-    width: 40%;
+    width: 30%;
     border-collapse: collapse;
     height: fit-content;
     margin-left: 25px;
@@ -35,16 +60,16 @@ th {
 }
 
 tr {
-    width: 9rem;
+    width: 6rem;
     height: 3rem;
     border: 1px solid black;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .lat,
 .lng,
 .id {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .custom-map-control-button {
