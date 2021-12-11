@@ -9,13 +9,17 @@ function getPlacesFromStorage() {
 }
 
 function _addPlaceToStorage(place) {
-    let placesInDb = loadFromStorage(PLACES_STORAGE_KEY);
+    var placesInDb = loadFromStorage(PLACES_STORAGE_KEY);
     if (!placesInDb || (placesInDb && placesInDb.length === 0)) {
         placesInDb = [];
     }
     placesInDb.push(place);
     saveToStorage(PLACES_STORAGE_KEY, placesInDb);
 }
+
+// function getPlace() {
+//     return gPlace;
+// }
 
 function _createPlace(name, lat, lng) {
     const place = {
@@ -24,11 +28,11 @@ function _createPlace(name, lat, lng) {
         lat,
         lng,
     };
+    // place = gPlace;
     _addPlaceToStorage(place);
 }
 
 function initMap() {
-    renderLocationsTable();
     var options = {
         zoom: 10,
         center: { lat: 29.5577, lng: 34.9519 },
@@ -84,56 +88,30 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-function getSelectedLocation(map, infoWindow) {
-    map.addListener('click', (mapsMouseEvent) => {
-        var locationName = prompt('enter your location name');
-        document.querySelector('#name').innerText = locationName;
-        // Close the current InfoWindow.
-        infoWindow.close();
-        // Create a new InfoWindow.
-        infoWindow = new google.maps.InfoWindow({
-            position: mapsMouseEvent.latLng,
-        });
-        console.log(
-            'mapsMouseEvent.latLng.toJSON()',
-            mapsMouseEvent.latLng.toJSON()
-        );
-        const latLng = mapsMouseEvent.latLng.toJSON();
-        // getLat(latLng);
-        const elLong = document.querySelector('#longitude');
-        elLong.innerText = latLng;
-        infoWindow.setContent(
-            JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
-        );
-        infoWindow.open(map);
-    });
-}
+// function getSelectedLocation(map, infoWindow) {
+//     map.addListener('click', (mapsMouseEvent) => {
+//         var locationName = prompt('enter your location name');
+//         _createPlace(locationName, 55, 48);
+//         renderLocationsTable();
 
-// function getLat(lat) {
-//     return lat;
+//         // document.querySelector('#name').innerText = locationName;
+//         // Close the current InfoWindow.
+//         infoWindow.close();
+//         // Create a new InfoWindow.
+//         infoWindow = new google.maps.InfoWindow({
+//             position: mapsMouseEvent.latLng,
+//         });
+//         console.log('mapsMouseEvent.latLng', mapsMouseEvent.latLng);
+//         const latLng = mapsMouseEvent.latLng.toJSON();
+//         // getLat(latLng);
+//         const elLong = document.querySelector('#longitude');
+//         elLong.innerText = latLng;
+//         infoWindow.setContent(
+//             JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+//         );
+//         infoWindow.open(map);
+//     });
 // }
-
-function renderLocationsTable() {
-    // const lat = getLat(lat);
-    const elTable = document.querySelector('table');
-    var strHTML = ` <tr>
-                    <td>Id</td>
-                    <td class="key" id="latitude">currId</td>
-                 </tr><tr>
-                <td>Latitude</td>
-                <td class="key" id="latitude">currLatitude</td>
-            </tr>
-            <tr>
-                <td>Longitude</td>
-                <td class="key" id="longitude">chosen place</td>
-            </tr>
-            <tr>
-            <td>name</td>
-            <td class="key" id="name">locationName</td>
-            </tr>
-            `;
-    elTable.innerHTML = strHTML;
-}
 
 // When a user clicks on the map, the user is prompted to enter a
 // name and the clicked location is saved to a places array in the
